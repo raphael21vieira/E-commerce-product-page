@@ -1,0 +1,177 @@
+@import url(./style.css);
+
+body{
+  width: 1400px;
+height: 500px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content:center ;
+  align-items: center;
+  padding: 50px auto;
+  gap: 10px;
+}
+
+/*CONTAINER ESQUERDO*/
+
+.container-left{
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 20px;
+width: 600px;
+background-color: white;
+border-radius: 16px;
+
+}
+.titulo  {
+  border-bottom: 1px solid hsl(219, 9%, 45%);
+  
+}
+
+.foto-produto img{
+  height: 200px;
+  border-radius: 16px;
+
+}
+
+.card-produto{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.info-produto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+#nome-produto{
+font-size: 20px;
+font-weight: 900;
+
+}
+
+.quantidade-form input{
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.quantidade-form input:hover{
+  cursor: pointer;
+}
+
+#tamanhos {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+#tamanhos input:hover{
+  cursor: pointer;
+}
+
+.preco-left {
+  padding-top: 35px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.btn-delete{
+  padding-top: 28px;
+  font-size: 20px;
+  font-weight: 800;
+}
+.btn-delete p:hover{
+cursor: pointer;
+background-color: orange;
+}
+.btn-delete p{
+  background-color:hsl(26, 100%, 55%) ;
+  height: 30px;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+/*CONTAINER DIREITO*/
+
+.container-right{
+  width: 300px;
+  display: flex;
+flex-direction: column;
+gap: 10px;
+padding: 20px;
+background-color: white;
+border-radius: 16px;
+margin-top:80px ;
+
+}
+
+.titulo-delivery {
+  font-size: 20px;
+font-weight: 900;
+}
+
+.promocode input{
+  border-radius: 5px;
+  padding: 5px;
+ 
+}
+
+.promocode p{
+  padding-top: 5px;
+  color: hsl(26, 100%, 55%);
+  font-weight: 700;
+}
+
+.promocode #submit{
+ border-style: none;
+  background-color: hsl(26, 100%, 55%);
+}
+.promocode #submit:hover{
+  cursor: pointer;
+  background-color:orange;
+}
+
+.subtotal{
+  display: flex;
+  flex-direction: column;
+gap: 5px;
+}
+
+.titulo-subtotal , .desconto-subtotal,.taxa-subtotal , .total{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.botoes{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#botao1 , #botao2{
+  width: 100%;
+
+}
+
+#botao2{
+  background-color:hsl(27, 56%, 87%) ;
+}
+
+#botao2:hover{
+  background-color: orange;
+}
+
+/*adicionando hovers*/
+

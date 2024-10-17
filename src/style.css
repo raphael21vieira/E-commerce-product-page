@@ -1,0 +1,195 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Kumbh Sans", sans-serif;}
+
+body{
+  background-color:hsl(25, 100%, 94%) ;
+}
+  .container{
+    padding: 50px 180px;
+    border-style: solid;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: .5px solid hsl(220, 14%, 75%);
+  }
+
+  .lista ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+    
+  }
+
+  li a{
+    text-decoration: none;
+    color:hsl(220, 14%, 75%)
+  }
+
+  li a:hover{
+    font-weight: 700;
+    color: black;
+  }
+
+  .lateral-direita{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #img-avatar{
+    height: 30px;
+  }
+  #img-avatar:hover{
+    height: 36px;
+    cursor: pointer;
+  }
+
+  #img-carrinho:hover{
+height: 30px;
+cursor: pointer;
+
+  }
+
+  .main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 60px;
+  }
+
+  .container-right{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 50px;
+  }
+
+  .titulo{
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+
+  .p1{
+  color: hsl(219, 9%, 45%);
+  font-weight:700;
+  }
+
+  .p2{
+    color: hsl(219, 9%, 45%);
+  }
+
+  .preco{
+    display: flex;
+    flex-direction:row;
+    gap: 20px;
+    align-items: center;
+  }
+
+ 
+  .valor-atual{
+    font-size: 20px;
+  }
+
+  .desconto{
+    width: 40px;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  
+  .valor-antigo{
+text-decoration: line-through;
+  }
+
+  .inferior-right{
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-top: 16px;
+  }
+
+  
+
+#quantidade{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 100px;
+background-color:hsl(25, 100%, 94%);
+padding: 10px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 8px;
+
+}
+
+ #botaoSub, #botaoSomar{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+#botaoSub:hover, #botaoSomar:hover{
+  color:hsl(26, 100%, 55%) ;
+  cursor: pointer;
+}
+  button{
+    background-color:hsl(26, 100%, 55%);
+    width: 180px;
+    padding: 10px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 8px;
+   
+
+  }
+  button:hover{
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  #img-superior{
+
+    height: 400px;
+    border-radius: 16px;
+
+  }
+
+  .img-inferior{
+display: flex;
+justify-content: center;
+padding-top: 10px;
+gap: 20px;
+  }
+
+ 
+
+ #img-inferior1 ,#img-inferior2, #img-inferior3, #img-inferior4{
+    height: 80px;
+    border-radius: 16px;
+  }
+
+  #img-inferior1:hover,#img-inferior2:hover,#img-inferior3:hover,#img-inferior4:hover{
+cursor: pointer;
+border-style: solid;
+border-color: orangered;
+
+}

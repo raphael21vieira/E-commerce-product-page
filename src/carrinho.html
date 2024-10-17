@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./carrinho.css">
+  <script src="./carrinho.js" defer></script>
+  <script src="index.js" defer></script>
+  <title>Carrinho de compras</title>
+</head>
+<body>
+    <div class="container-left">
+      <div class="titulo">
+        <h1>Carrinho de compras</h1>
+      </div>
+      <div class="card-produto">
+        <div class="foto-produto">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="foto-produto">
+      </div>
+      <div class="info-produto">
+        <p id="nome-produto">Tenis</p>
+        
+        <div class="stock">
+          <p id="inStock">instock</p>
+        </div>
+
+        <form  class="quantidade-form">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="0" max="100" step="1" value="0">
+          <input type="submit" value="Submit" id="submit">        
+        </form>
+       
+        
+        <form  class="tamanho-form">
+          <h4>Tamanho</h4>
+
+          <div id="tamanhos">
+            <label for="vehicle1"> P</label><br>
+          <input type="checkbox" id="p" name="p" value="p">
+          <label for="m"> M</label><br>
+          <input type="checkbox" id="m" name="m" value="m">
+          <label for="g">G</label>
+          <input type="checkbox" id="g" name="g" value="g">
+</div>
+        </form>
+      </div>
+
+      <div class="preco-left">$125.00</div>
+      <div class="btn-delete">
+        <p>delete</p>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="container-right">  
+      <p class="titulo-delivery">Delivery</p>
+
+      <form class="tipo-entrega">
+        <input type="checkbox" id="free" name="free" value="free">
+        <label for="free"> Free</label><br>
+        <input type="checkbox" id="express" name="express" value="Car">
+        <label for="express"> Express>$9.99</label><br>
+      </form>
+    
+      <form  class="promocode">
+        <input type="text" id="text" placeholder="promocode">
+        <input type="submit" id="submit" value="ADD">
+        <p id="p-promocode">20% off discount</p>
+      </form>
+
+      <div class="subtotal">
+        <div class="titulo-subtotal">
+        <h4 id="titulo-subtotal">Subtotal</h4>
+        <p>$125.00</p>
+      </div>
+        <div class="desconto-subtotal">
+        <h4 id="desconto-subtotal">Desconto</h4>
+        <p>[20%-16.00]</p>
+      </div>
+        <div class="taxa-subtotal">
+        <h4 id="taxa-subtotal">Taxa</h4>
+        <p>+$14.00</p>
+      </div>
+      </div>
+
+      <div class="total">
+        <h4 id="total">Total</h4>
+        <p>+$125.00</p>
+      </div>
+      
+      <div class="botoes">
+        <button id="botao1">Proceed to checkout</button>
+        <button id="botao2">Continue Shopping</button>
+      </div>
+    </div>
+
+</body>
+</html>
