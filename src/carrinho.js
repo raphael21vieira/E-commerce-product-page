@@ -1,85 +1,80 @@
+// Captura dos elementos principais
+const deleteBtn = document.querySelector(".btn-delete");
+const cardProduto = document.querySelector(".card-produto");
+const containerLeft = document.querySelector(".container-left");
 
-const deleteBtn = document.querySelector(".btn-delete")
-const cardProduto =document.querySelector(".card-produto")
-const containerLeft =document.querySelector(".container-left")
-
-const submitBtn =document.querySelector("#submit")
-const quantidadeBtn =document.querySelector("#quantity")
+const submitBtn = document.querySelector("#submit");
+const quantidadeBtn = document.querySelector("#quantity");
 const checkboxesTamanho = document.querySelectorAll("#tamanhos input[type='checkbox']");
 
-//sessão entrega
+// Sessão de entrega
 const btnComprar = document.querySelector("#botao1");
 const btnVoltar = document.querySelector("#botao2");
-
-// Captura todos os checkboxes de entrega
 const checkboxesEntrega = document.querySelectorAll(".tipo-entrega input[type='checkbox']");
 
-
-
-
-//deletar item do carrinho
-deleteBtn.addEventListener("click",(e)=>{
-  e.preventDefault()
-  const confirmarDelete =confirm("Deseja retirar o item do carrinho de compras?")
-  if (confirmarDelete) {
-    containerLeft.removeChild(cardProduto)
-  }
-  
-})
-
-submitBtn.addEventListener("click",(e)=>{
-  e.preventDefault()
-
-  //verifica a  quantidade do produto
-  if (quantidadeBtn.value==0) {
-    alert("por favor , informe a quantidade desejada")
-     }
-
-     let tamanhoSelecionado = false;
-// Verificar se algum checkbox de tamanho está marcado
-  for (let i = 0; i < checkboxesTamanho.length; i++) {
-    if (checkboxesTamanho[i].checked) {
-      tamanhoSelecionado = true;
-      break; // Encerra o loop ao encontrar o primeiro checkbox marcado
+// Função auxiliar: Desmarcar outros checkboxes
+const desmarcarOutrosCheckboxes = (checkboxes, checkboxSelecionado) => {
+  checkboxes.forEach((checkbox) => {
+    if (checkbox !== checkboxSelecionado) {
+      checkbox.checked = false;
     }
-  }
-  // Se nenhum tamanho foi selecionado, exibe a mensagem de erro
-  if (!tamanhoSelecionado) {
-    alert("Por favor, selecione um tamanho desejado.");
-    return; // Interrompe se nenhum tamanho foi selecionado
-  } else if(!tamanhoSelecionado && quantidadeBtn.value==0){
-  alert("Por favor , preencha todos os campos!");
-  }else if(tamanhoSelecionado && quantidadeBtn.value>0){
-    alert("produto enviado para a sessão de delivery!")
-  }
   });
+};
 
-  // Garantir que apenas um checkbox de tamanho esteja selecionado por vez
+// Função auxiliar: Verificar se algum checkbox está marcado
+const verificarCheckboxMarcado = (checkboxes) => {
+  return Array.from(checkboxes).some((checkbox) => checkbox.checked);
+};
+
+// Função auxiliar: Exibir alerta e interromper o fluxo
+const mostrarAlerta = (mensagem) => {
+  alert(mensagem);
+};
+
+// Função para deletar o item do carrinho
+deleteBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const confirmarDelete = confirm("Deseja retirar o item do carrinho de compras?");
+  if (confirmarDelete) {
+    containerLeft.removeChild(cardProduto);
+  }
+});
+
+// Verificação e envio do formulário de compra
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Verifica se a quantidade foi informada
+  if (quantidadeBtn.value == 0) {
+    mostrarAlerta("Por favor, informe a quantidade desejada.");
+    return;
+  }
+
+  // Verifica se algum tamanho foi selecionado
+  const tamanhoSelecionado = verificarCheckboxMarcado(checkboxesTamanho);
+  if (!tamanhoSelecionado) {
+    mostrarAlerta("Por favor, selecione um tamanho desejado.");
+    return;
+  }
+
+  // Se tudo estiver ok
+  mostrarAlerta("Produto enviado para a sessão de delivery!");
+});
+
+// Garantir que apenas um checkbox de tamanho esteja selecionado por vez
 checkboxesTamanho.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
-      // Desmarca todos os outros checkboxes
-      checkboxesTamanho.forEach((cb) => {
-        if (cb !== checkbox) {
-          cb.checked = false;
-        }
-      });
+      desmarcarOutrosCheckboxes(checkboxesTamanho, checkbox);
     }
   });
 });
 
-     
-
-// sessão delivery 
-  
+// Sessão de entrega: Garantir que apenas um checkbox de entrega esteja selecionado por vez
 checkboxesEntrega.forEach((entrega) => {
   entrega.addEventListener("change", () => {
     if (entrega.checked) {
-      checkboxesEntrega.forEach((cb) => {
-        if (cb !== entrega) {
-          cb.checked = false;
-        }
-      });
+      desmarcarOutrosCheckboxes(checkboxesEntrega, entrega);
     }
   });
 });
@@ -88,26 +83,19 @@ checkboxesEntrega.forEach((entrega) => {
 btnComprar.addEventListener("click", (e) => {
   e.preventDefault();
 
-  // Verificar se alguma opção de entrega foi selecionada
-  let entregaSelecionada = false;
-  for (let i = 0; i < checkboxesEntrega.length; i++) {
-    if (checkboxesEntrega[i].checked) {
-      entregaSelecionada = true;
-      break;
-    }
-  }
-
+  // Verifica se algum tipo de entrega foi selecionado
+  const entregaSelecionada = verificarCheckboxMarcado(checkboxesEntrega);
   if (!entregaSelecionada) {
-    alert("Por favor, selecione um tipo de entrega.");
+    mostrarAlerta("Por favor, selecione um tipo de entrega.");
     return;
   }
 
-  alert("Processando o checkout...");
+  mostrarAlerta("Processando o checkout...");
 });
 
 // Evento de clique no botão "Continue Shopping"
 btnVoltar.addEventListener("click", (e) => {
   e.preventDefault();
-  alert("Voltando às compras...");
-  window.location.href="index.html"
+  mostrarAlerta("Voltando às compras...");
+  window.location.href = "index.html"; // Redireciona para a página principal
 });
